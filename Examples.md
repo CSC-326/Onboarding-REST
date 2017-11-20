@@ -1,6 +1,5 @@
 [Introduction](README.md) | [Concepts](Concepts.md) |  [Example REST Call](Examples.md) | [Walkthrough]() | [Fix a bug]() | [CoffeeMaker]()
 
-
 Calling a REST api from a client.
 
 ### Getting the inventory from inside the browser
@@ -11,27 +10,25 @@ fetch("/api/v1/inventory")
     .then(result => console.log(result));
 ```
 
-
 ### Add an element.
 
-const url = 'https://randomuser.me/api';
+```
+const url = '/api/v1/inventory';
 // The data we are going to send in our request
 let data = {
-    name: 'Sara'
+    coffee: '13'
 }
-// The parameters we are gonna pass to the fetch function
 let fetchData = { 
-    method: 'POST', 
-    body: data,
-    headers: new Headers()
+    method: 'PUT', 
+    body: data
 }
 fetch(url, fetchData)
-.then(function() {
-    // Handle response you get from the server
-});
+    .then(data => data.json())
+    .then(result => console.log(result));
+```
 
 
 ### Running from a command line
 
-Using curl.
+Using curl to access the REST API from your system.
 
