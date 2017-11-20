@@ -2,6 +2,12 @@
 
 # Introduction
 
+A REST API allows a client to access resources provided by a service.
+
+### Prereqs
+
+You must have CoffeeMaker installed and application running.
+
 ### Learning Objectives
 
 * Identify concepts related to REST apis (such as REST verbs).
