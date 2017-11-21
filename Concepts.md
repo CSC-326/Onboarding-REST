@@ -1,4 +1,6 @@
-[Introduction](README.md) | [Concepts](Concepts.md) |  [Example REST Call](Examples.md) | [Walkthrough]() | [Fix a bug]() | [CoffeeMaker]()
+[Introduction](README.md) | [Concepts](Concepts.md) |  [Practice.md](Examples.md) | [Walkthrough]() | [Fix a bug]() | [CoffeeMaker]()
+
+# Concepts
 
 Simply put, an API (or Application Programming Interface) defines a specification for how to communicate with a computer program or subset thereof. An API lays out what functionality is offered, what parameters must be provided when making calls, and provides some guarantees about the return type given the preconditions are satisfied. Fundamentally, a complete and well-documented API makes it easier to use a piece of code as a “building block” for building a larger system.
 

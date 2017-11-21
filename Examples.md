@@ -4,29 +4,34 @@ Calling a REST api from a client.
 
 ### Getting the inventory from inside the browser
 
-```
+```Javascript
 fetch("/api/v1/inventory")
     .then(data => data.json())
     .then(result => console.log(result));
 ```
 
-### Add an element.
+### Send a request to update inventory
 
-```
-const url = '/api/v1/inventory';
+This request will increase coffee, milk, sugar, and chocolate inventory count by 1.
+
+```Javascript
 // The data we are going to send in our request
-let data = {
-    coffee: '13'
+data = {
+    coffee: 1, milk: 1, sugar: 1, chocolate: 1
 }
-let fetchData = { 
+// Headers describing how the request body is formatted.
+headers = new Headers();
+headers.append('Content-Type', 'application/json');
+// Request information
+fetchData = { 
     method: 'PUT', 
-    body: data
+    body: JSON.stringify(data),
+    headers: headers
 }
-fetch(url, fetchData)
+fetch('/api/v1/inventory', fetchData)
     .then(data => data.json())
     .then(result => console.log(result));
 ```
-
 
 ### Running from a command line
 
