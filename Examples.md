@@ -50,5 +50,13 @@ Executing this code snippet in the browser will increase the all items in invent
 
 ### Running from a command line
 
-Using curl to access the REST API from your system.
+Using curl to access the REST API from your system. Here are the same examples, but written to work with curl:
+
+```bash
+curl --request GET http://localhost:8080/api/v1/inventory
+```
+
+```bash
+curl --request PUT -H "Content-Type: application/json" --data '{"coffee":1,"milk":1,"sugar":1,"chocolate":1}' http://localhost:8080/api/v1/inventory
+```
 
