@@ -60,3 +60,9 @@ curl --request GET http://localhost:8080/api/v1/inventory
 curl --request PUT -H "Content-Type: application/json" --data '{"coffee":1,"milk":1,"sugar":1,"chocolate":1}' http://localhost:8080/api/v1/inventory
 ```
 
+### API tools
+
+Although debugging from the browser console window or with command line tools can be useful, investing in web traffic/api tools will be worthwhile. Here are two tools popular, which are frequently used in industry:
+
+* [Postman](https://www.getpostman.com/postman)
+* [Fiddler](https://www.telerik.com/fiddler)
