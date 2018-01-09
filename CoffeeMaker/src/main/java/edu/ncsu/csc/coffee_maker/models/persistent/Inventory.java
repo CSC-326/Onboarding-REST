@@ -1,10 +1,5 @@
 package edu.ncsu.csc.coffee_maker.models.persistent;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.Min;
 
 import org.springframework.validation.annotation.Validated;
@@ -17,8 +12,6 @@ import org.springframework.validation.annotation.Validated;
  * @author Elizabeth Gilbert
  * @author Sarah Heckman
  */
-@Entity
-@Table ( name = "inventory" )
 @Validated
 public class Inventory {
 
@@ -65,8 +58,6 @@ public class Inventory {
      *
      * @return long
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId () {
         return id;
     }
