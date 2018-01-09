@@ -3,6 +3,9 @@ package edu.ncsu.csc.coffee_maker.services;
 import org.springframework.stereotype.Service;
 
 import edu.ncsu.csc.coffee_maker.models.persistent.Inventory;
+import edu.ncsu.csc.coffee_maker.models.persistent.Orders;
+import edu.ncsu.csc.coffee_maker.models.persistent.Orders.Order;
+import java.util.List;
 
 /**
  * Service for working with the inventory.
@@ -15,9 +18,11 @@ import edu.ncsu.csc.coffee_maker.models.persistent.Inventory;
 public class InventoryService {
 
     private static Inventory inventory;
+    private static Orders orders;
 
     static {
         inventory = populateInventory();
+        orders = new Orders();
     }
 
     /**
@@ -27,6 +32,10 @@ public class InventoryService {
      */
     public Inventory getInventory () {
         return inventory;
+    }
+
+    public List<Order> getOrders () {
+        return orders.getOrders();
     }
 
     /**
@@ -49,6 +58,9 @@ public class InventoryService {
      *            Inventory with new ingredients
      */
     public void addInventory ( final Inventory inventory ) throws IllegalArgumentException {
+     
+        orders.addOrder( inventory );
+
         InventoryService.inventory.addIngredients( inventory.getCoffee(), inventory.getMilk(), inventory.getSugar(),
                 inventory.getChocolate() );
     }

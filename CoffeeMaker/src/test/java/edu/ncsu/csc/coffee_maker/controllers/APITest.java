@@ -87,4 +87,19 @@ public class APITest {
         ;
     }
 
+    @Test
+    public void getMissingOrder () throws Exception {
+        // Verify that we non existant orders produce errors
+        mvc.perform( get( "/api/v1/orders/100" ) )
+        .andExpect( status().is4xxClientError() );
+    }
+
+    @Test 
+    public void getExistingOrder() throws Exception {
+        mvc.perform( get( "/api/v1/orders/1" ) )
+        .andExpect( status().isOk() )
+        .andExpect( jsonPath("$.orderNumber", is(1) ) )
+        .andExpect( jsonPath("$.coffee", is(1) ) )
+        .andExpect( jsonPath("$.milk", is(0) ) );
+    }
 }
