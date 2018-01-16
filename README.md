@@ -144,11 +144,22 @@ public ResponseEntity createRecipe ( @RequestBody final Recipe recipe ) {
 
 Here, we must perform some validation to make sure that the recipe does not already exist and that space exists for it.  Then, we create and return a `ResponseEntity` with the result.  Spring's `ResponseEntity` is a _very_ flexible structure whose constructor takes two parameters: the response body to be returned to the user (a String indicating an error message, or any other Object that was retrieved) and a [HTTP status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) indicating the status of the request.
 
-## Testing a REST service
+### Testing a REST service
 
-From eclipse, run the Maven test goal, or from a command line, inside the CoffeeMaker-Lite directory, run `mvn test`.
+Spring provides several ways to test a REST endpoint. One useful way is to create an integration test that will allow you to simulate a client call to an endpoint.
 
+To create the Test class, you first annotate the class as follows.
+
+```java
+@RunWith ( SpringRunner.class )
+@SpringBootTest ( properties = "logging.level.org.springframework.web=DEBUG" )
+@AutoConfigureMockMvc
+public class APITest {
 ```
+
+Then you can write a unit test as follows:
+
+```java
     @Test 
     public void getExistingOrder() throws Exception {
         mvc.perform( get( "/api/v1/orders/1" ) )
@@ -158,3 +169,31 @@ From eclipse, run the Maven test goal, or from a command line, inside the Coffee
         .andExpect( jsonPath("$.milk", is(0) ) );
     }
 ```
+
+> **Note**: That the full path will be `/api/v1/orders/1` when using as a client.
+
+### Practice Creating a Spring REST API endpoint.
+
+The CoffeeMaker-Lite project has a working REST call for returning `GET /inventory`. It also has a "order" history service, that tracks the updates to the inventory. However, the code is missing two REST endpoints: a) updating inventory, and b) getting an a specific order by id.
+
+1. From eclipse, run the Maven test goal, or from a command line, inside the CoffeeMaker-Lite directory, run `mvn test`.
+
+   Observe 2 tests failing:
+
+   ```
+   Failed tests: 
+   APITest.getExistingOrder:100 Status expected:<200> but was:<404>
+   APITest.testPut:84 Status expected:<200> but was:<405>
+   ```
+
+Let's update the edu.ncsu.csc.coffee_maker.controller.RESTAPIController.java class to provide the proper endpoints that will pass the test.
+
+2. Create a `PUT /inventory` endpoint that will call `inventoryService.addInventory( inventory )` and will return the current Inventory (`inventoryService.getInventory()`).
+
+3. Create a `GET /orders/{id}` endpoint that will call `inventoryService.getOrders()`. Return the appropriate order object (based on index in list). Return 404 if index is out of range.
+
+> Note: If you are getting stuck, see [Answers](Answers.md) for example implementations.
+
+## CoffeeMaker: Add Edit Recipe REST API and tests.
+
+Now you should be able to create a new Edit Recipe REST API endpoint inside CoffeeMaker and added the associated tests.
