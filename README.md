@@ -4,6 +4,8 @@ A *RESTful architecture*, is an architectural style ([Fielding](https://www.ics.
 
 In this workshop, you will learn the concepts associated with REST APIs, practice accessing an existing REST api as a client, and implement a REST service.
 
+We have made a simple version of CoffeeMaker, called CoffeeMaker-Lite, with only the Spring REST API (no database or front-end). Clone this repository and import the CoffeeMaker-Lite project as an existing Maven project.
+
 ## Concepts
 
 Simply put, an API (or Application Programming Interface) defines a specification for how to communicate with a computer program or subset thereof. An API lays out what functionality is offered, what parameters must be provided when making calls, and provides some guarantees about the return type given the preconditions are satisfied. Fundamentally, a complete and well-documented API makes it easier to use a piece of code as a “building block” for building a larger system.
@@ -144,3 +146,15 @@ Here, we must perform some validation to make sure that the recipe does not alre
 
 ## Testing a REST service
 
+From eclipse, run the Maven test goal, or from a command line, inside the CoffeeMaker-Lite directory, run `mvn test`.
+
+```
+    @Test 
+    public void getExistingOrder() throws Exception {
+        mvc.perform( get( "/api/v1/orders/1" ) )
+        .andExpect( status().isOk() )
+        .andExpect( jsonPath("$.orderNumber", is(1) ) )
+        .andExpect( jsonPath("$.coffee", is(1) ) )
+        .andExpect( jsonPath("$.milk", is(0) ) );
+    }
+```
