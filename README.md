@@ -69,9 +69,11 @@ fetch('/api/v1/inventory', fetchData)
     .then(result => console.log(result));
 ```
 
-Executing this code snippet in the browser will increase the all items in inventory by 1.
+Executing this code snippet in the browser would increase the all items in inventory by 1.  
 
 ![console put](imgs/console_put.png)
+
+**Note that this isn't actually working yet -- one of your tasks is to implement it*.*
 
 ### Running from a command line
 
@@ -84,6 +86,8 @@ curl --request GET http://localhost:8080/api/v1/inventory
 ```bash
 curl --request PUT -H "Content-Type: application/json" --data '{"coffee":1,"milk":1,"sugar":1,"chocolate":1}' http://localhost:8080/api/v1/inventory
 ```
+
+As above, this won't work until you implement the PUT route.
 
 ### API tools
 
