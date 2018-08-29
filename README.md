@@ -192,7 +192,7 @@ Let's update the edu.ncsu.csc.coffee_maker.controller.RESTAPIController.java cla
 
 3. Create a `GET /orders/{id}` endpoint that will call `inventoryService.getOrders()`. Return the appropriate order object (based on index in list). Return 404 if index is out of range.
 
-> Note: If you are getting stuck, see [Answers](Answers.md) for example implementations.
+> Note: If you are getting stuck, see [Answers](Answer.md) for example implementations.
 
 ## CoffeeMaker: Add Edit Recipe REST API and tests.
 
