@@ -29,9 +29,7 @@ Typically, REST API operations are carried out over HTTP; consequently most REST
 
 ## Practicting with a REST Client
 
-Ensure that coffeemaker is running and is visible in `http://localhost:8080/inventory.html`
-
-Let's see how we how a javascript client application can communicate with a server using a REST api call.
+Let's see how a javascript client application can communicate with a server using a REST API call.
 
 ### Getting the inventory from inside the browser
 
@@ -43,7 +41,7 @@ fetch("/api/v1/inventory")
     .then(result => console.log(result));
 ```
 
-This constructs as simple `GET` request to `/api/v1/inventory` and retrieves the inventory as a json object. You should be able to see results as follows:
+This constructs as simple `GET` request to `/api/v1/inventory` and retrieves the inventory as a JSON object. You should be able to see results as follows:
 
 ![console get](imgs/console_get.png)
 
@@ -71,9 +69,11 @@ fetch('/api/v1/inventory', fetchData)
     .then(result => console.log(result));
 ```
 
-Executing this code snippet in the browser will increase the all items in inventory by 1.
+Executing this code snippet in the browser would increase the all items in inventory by 1.  
 
 ![console put](imgs/console_put.png)
+
+**Note that this isn't actually working yet -- one of your tasks is to implement it*.*
 
 ### Running from a command line
 
@@ -87,9 +87,11 @@ curl --request GET http://localhost:8080/api/v1/inventory
 curl --request PUT -H "Content-Type: application/json" --data '{"coffee":1,"milk":1,"sugar":1,"chocolate":1}' http://localhost:8080/api/v1/inventory
 ```
 
+As above, this won't work until you implement the PUT route.
+
 ### API tools
 
-Although debugging from the browser console window or with command line tools can be useful, investing in web traffic/api tools will be worthwhile. Here are two tools popular, which are frequently used in industry:
+Although debugging from the browser console window or with command line tools can be useful, investing in web traffic/API tools will be worthwhile. Here are two tools popular, which are frequently used in industry:
 
 * [Postman](https://www.getpostman.com/postman)
 * [Fiddler](https://www.telerik.com/fiddler)
