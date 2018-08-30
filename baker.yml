@@ -1,0 +1,14 @@
+---
+name: coffeemaker-lite
+container:
+  ports: 8080
+
+tools:
+  - maven
+lang:
+  - java8
+
+commands:
+  serve: cd CoffeeMaker-Lite && mvn spring-boot:run
+  debug: cd CoffeeMaker-Lite && mvnDebug spring-boot:run
+  test: cd CoffeeMaker-Lite && mvn test
