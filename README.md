@@ -4,7 +4,7 @@ A *RESTful architecture*, is an architectural style ([Fielding](https://www.ics.
 
 In this workshop, you will learn the concepts associated with REST APIs, practice accessing an existing REST api as a client, and implement a REST service.
 
-We have made a simple version of CoffeeMaker, called CoffeeMaker-Lite, with only the Spring REST API (no database or front-end). Clone this repository and import the CoffeeMaker-Lite project as an existing Maven project.
+We have made a simple version of CoffeeMaker, called CoffeeMaker-Lite, with only the Spring REST API (no database or front-end). Clone this repository and import the CoffeeMaker-Lite project as an existing Maven project.  Start CoffeeMaker-Lite; CoffeeMaker-Lite runs the same as the normal one: Run As -> Maven Build ... -> Goals: `clean spring-boot:run`.
 
 ## Concepts
 
