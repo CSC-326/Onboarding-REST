@@ -33,7 +33,7 @@ Let's see how a javascript client application can communicate with a server usin
 
 ### Getting the inventory from inside the browser
 
-Open the developer's tool console and executing this code inside of the console.
+Open the developer's tool console (in your Web browser -- not Eclipse!) and execute this code inside of the console.
 
 ```Javascript
 fetch("/api/v1/inventory")
