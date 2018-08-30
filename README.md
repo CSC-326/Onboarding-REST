@@ -70,10 +70,9 @@ fetch('/api/v1/inventory', fetchData)
 ```
 
 Executing this code snippet in the browser would increase the all items in inventory by 1.  
+**Note that this isn't actually working yet -- one of your tasks is to implement it*.*  
 
 ![console put](imgs/console_put.png)
-
-**Note that this isn't actually working yet -- one of your tasks is to implement it*.*
 
 ### Running from a command line
 
